@@ -4,6 +4,7 @@ import React from 'react';
 import TopicList from "./TopicList";
 import Duration from "./Duration";
 import LanguageList from "./LanguageList";
+import SDGList from "./SDGList";
 
 import styles from "./ModulePanel.module.css";
 
@@ -26,13 +27,21 @@ function ModulePanel(props) {
 
   return (
     <div className={panel_style}>
-      <div className={styles.banner} style={{backgroundColor: module.category.color}}/>
-      <div className={styles.number}>{module.number}</div>
+      <div className={styles.banner}
+        style={{
+          backgroundColor: module.category.color,
+          color: module.category.color}}
+      >
+        <div className={styles.number}>
+          {module.number}
+        </div>
+      </div>
       <div className={styles.title}>{module.name}</div>
-      <div className={styles.logo}>{module.logo}</div>
+      <img className={styles.logo} src={module.logo} alt=""/>
       <div className={styles.description}>{module.description}</div>
       <TopicList topics={module.topics} />
-      <hr/>
+      <hr />
+      <SDGList sdgs={module.sdgs} />
       <Duration value={module.duration} />
       <LanguageList languages={module.languages} />
     </div>

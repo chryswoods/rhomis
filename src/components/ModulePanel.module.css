@@ -1,0 +1,11 @@
+.panel {
+    background-color: #e6e7e8;
+    color: #782226;
+    width: 250px;
+}
+
+.selected_panel {
+    background-color: #782226;
+    color: #e6e7e8;
+    width: 250px;
+}

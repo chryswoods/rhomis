@@ -8,12 +8,14 @@ function LanguageList(props) {
   let s = [];
 
   for (let i in props.languages) {
-    s.push(props.languages[i].code);
+    let lang = props.languages[i];
+    s.push(<div className={styles.language} key={lang.code}>
+             <div className={styles.code}>{lang.code}</div>
+             <div className={styles.popover}>{lang.name}</div>
+           </div>);
   }
 
-  s = s.join(" | ");
-
-  return (<span className={styles.languageList}>{s}</span>);
+  return (<div className={styles.languageList}>{s}</div>);
 }
 
 export default LanguageList;

@@ -1,8 +1,9 @@
-.module_pane {
-    background-color: #e6e7e8;
-    color: #782226;
+.panel {
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.number_pane {
-    background-color: #ffffff;
+.panel>* {
+    margin: 10px;
 }

@@ -20,7 +20,7 @@ class ModuleChooser extends React.Component {
                                key={i}/>);
     }
 
-    return (<div className="panels">
+    return (<div className={styles.panel}>
               {panels}
             </div>);
   }
