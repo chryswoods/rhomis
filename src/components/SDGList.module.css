@@ -1,0 +1,61 @@
+.panel {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.sdg {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2px;
+}
+
+.number {
+    color: #ffffff;
+    font-size: 6pt;
+    font-weight: bold;
+    width: 25%;
+    height: 15%;
+}
+
+.text {
+    color: #ffffff;
+    font-size: 1.7pt;
+    width: 60%;
+    padding-left: 5%;
+    font-weight: bold;
+}
+
+.logo {
+    height: 100%;
+    width: 100%;
+}
+
+.tooltip {
+    height: 70%;
+    width: 70%;
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5%;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    width: 200px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -100px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}

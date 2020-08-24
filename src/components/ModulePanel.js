@@ -28,22 +28,25 @@ function ModulePanel(props) {
   return (
     <div className={panel_style}>
       <div className={styles.banner}
-        style={{
-          backgroundColor: module.category.color,
-          color: module.category.color}}
-      >
-        <div className={styles.number}>
+        style={{ backgroundColor: module.category.color }}>
+        <div className={styles.number}
+             style={{color: module.category.color}}>
           {module.number}
         </div>
       </div>
       <div className={styles.title}>{module.name}</div>
       <img className={styles.logo} src={module.logo} alt=""/>
       <div className={styles.description}>{module.description}</div>
-      <TopicList topics={module.topics} />
-      <hr />
-      <SDGList sdgs={module.sdgs} />
-      <Duration value={module.duration} />
-      <LanguageList languages={module.languages} />
+      <div className={styles.topics}>
+        <TopicList topics={module.topics} />
+      </div>
+      <div className={styles.spacer} />
+      <hr style={{ width: "90%", borderTop: "1px solid #782226" }}/>
+      <div className={styles.footer}>
+        <SDGList sdgs={module.sdgs} />
+        <Duration value={module.duration} />
+        <LanguageList languages={module.languages} />
+      </div>
     </div>
   );
 }

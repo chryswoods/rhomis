@@ -10,10 +10,13 @@ function SDGBox(props) {
     return null;
   }
 
-  return (<div className={styles.sdg} style={{backgroundColor: sdg.color}}>
+  return (<div className={styles.sdg} style={{ backgroundColor: sdg.color }}>
             <div className={styles.number}>{sdg.number}</div>
             <div className={styles.text}>{sdg.description}</div>
-            <img className={styles.logo} src={sdg.logo} alt=""/>
+            <div className={styles.tooltip}>
+              <img className={styles.logo} src={sdg.logo} alt="" />
+              <span className={styles.tooltiptext}>{sdg.description}</span>
+            </div>
           </div>);
 }
 
