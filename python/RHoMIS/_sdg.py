@@ -26,6 +26,7 @@ class SDG:
     def assert_sane(self) -> None:
         if self.number is None:
             self = SDG()
+            return
 
         self.number = int(self.number)
         assert self.number > 0
@@ -38,3 +39,14 @@ class SDG:
 
         assert self.logo is not None
         self.logo = str(self.logo)
+
+    def toDry(self):
+        self.assert_sane()
+
+        if self.is_null():
+            return {}
+
+        return {"number": self.number,
+                "description": self.description,
+                "color": self.color,
+                "logo": self.logo}

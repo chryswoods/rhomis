@@ -66,6 +66,7 @@ class Module:
 
         assert self.topics is not None
         self.topics = [str(x) for x in self.topics]
+        assert len(self.topics) > 0
 
         assert self.sdgs is not None
         self.sdgs = [int(x) for x in self.sdgs]
@@ -79,3 +80,21 @@ class Module:
 
         assert self.languages is not None
         self.languages = [str(x) for x in self.languages]
+        assert len(self.languages) > 0
+
+    def toDry(self):
+        self.assert_sane()
+
+        if self.is_null():
+            return {}
+
+        return {"name": self.name,
+                "number": self.number,
+                "logo": self.logo,
+                "category": self.category,
+                "module_type": self.module_type,
+                "description": self.description,
+                "topics": self.topics,
+                "sdgs": self.sdgs,
+                "duration": self.duration,
+                "languages": self.languages}

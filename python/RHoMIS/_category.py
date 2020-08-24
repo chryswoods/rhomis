@@ -20,8 +20,18 @@ class Category:
     def assert_sane(self) -> None:
         if self.name is None:
             self = Category()
+            return
 
         self.name = str(self.name)
 
         assert self.color is not None
         self.color = str(self.color)
+
+    def toDry(self):
+        self.assert_sane()
+
+        if self.is_null():
+            return {}
+
+        return {"name": self.name,
+                "color": self.color}
