@@ -24,8 +24,6 @@ function ModulePanel(props) {
     panel_style = styles.selected_panel;
   }
 
-  console.log(module);
-
   return (
     <div className={panel_style}>
       <div className={styles.banner} style={{backgroundColor: module.category.color}}/>
@@ -33,10 +31,10 @@ function ModulePanel(props) {
       <div className={styles.title}>{module.name}</div>
       <div className={styles.logo}>{module.logo}</div>
       <div className={styles.description}>{module.description}</div>
-      <hr/>
       <TopicList topics={module.topics} />
+      <hr/>
       <Duration value={module.duration} />
-      <LanguageList topics={module.languages} />
+      <LanguageList languages={module.languages} />
     </div>
   );
 }

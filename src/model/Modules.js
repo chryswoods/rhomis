@@ -40,7 +40,7 @@ class Modules{
       let sdgs = [];
 
       for (let j in module.sdgs) {
-        sdgs.push(this._number_to_sdg[module.sdgs[j]]);
+        sdgs.push(this.sdgs[this._number_to_sdg[module.sdgs[j]]]);
       }
 
       module.sdgs = sdgs;
@@ -48,7 +48,8 @@ class Modules{
       let languages = [];
 
       for (let j in module.languages) {
-        languages.push(this._code_to_language[module.languages[j]]);
+        languages.push(this.languages[
+                  this._code_to_language[module.languages[j]]]);
       }
 
       module.languages = languages;

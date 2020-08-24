@@ -12,11 +12,9 @@ class ModuleChooser extends React.Component {
 
   render() {
 
-    console.log(this.state.modules);
-
     let panels = [];
 
-    for (let i in this.state.modules) {
+    for (let i in this.state.modules.modules) {
       panels.push(<ModulePanel modules={this.state.modules}
                                index={i}
                                key={i}/>);
