@@ -1,19 +1,25 @@
 import Dry from "json-dry";
 
-/** A module in the system */
 class Module {
   constructor(props) {
-    this.state = {
-      name: null,
-      number: null,
-      logo: null,
-      category: null,
-      type: null,
-      description: null,
-      topics: null,
-      sdgs: null,
-      time: null,
-      languages: null,
-    };
+    this.name = props.name;
+    this.number = props.number;
+    this.logo = props.logo;
+    this.category = props.category;
+    this.module_type = props.module_type;
+    this.description = props.description;
+    this.topics = props.topics;
+    this.sdgs = props.sdgs;
+    this.duration = props.duration;
+    this.languages = props.languages;
   }
 }
+
+Module.unDry = function (value) {
+  let module = new Module(value);
+  return module;
+}
+
+Dry.registerClass("Module", Module);
+
+export default Module;
