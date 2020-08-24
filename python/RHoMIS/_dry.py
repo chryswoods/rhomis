@@ -51,6 +51,6 @@ def _stringify(obj, drypath=[]):
         return obj
 
 
-def stringify(obj):
+def stringify(obj, indent=None):
     import json as _json
-    return _json.dumps(_stringify(obj, []))
+    return _json.dumps(_stringify(obj, []), indent=indent)

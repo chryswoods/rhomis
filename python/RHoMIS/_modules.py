@@ -121,3 +121,7 @@ class Modules:
                 "sdgs": self.sdgs,
                 "languages": self.languages,
                 "modules": self.modules}
+
+    def to_json(self, indent=None):
+        from ._dry import stringify
+        return stringify(self, indent=indent)
