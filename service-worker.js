@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/rhomis/precache-manifest.76f06f67d04e0b7a5d518aa9b2791118.js"
+  "/rhomis/precache-manifest.cb168fda39f922f2947ce8eb1ab8dce9.js"
 );
 
 self.addEventListener('message', (event) => {

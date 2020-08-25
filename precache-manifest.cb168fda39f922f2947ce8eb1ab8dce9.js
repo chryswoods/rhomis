@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3fa8c5b1c0edc06a564fdd380c25991f",
+    "revision": "e68e2c9ddc0822775652904883060e25",
     "url": "/rhomis/index.html"
   },
   {
-    "revision": "98b75143effbd018a533",
-    "url": "/rhomis/static/css/main.4d6acec9.chunk.css"
+    "revision": "528a4e793400da1a1192",
+    "url": "/rhomis/static/css/main.0d6282a5.chunk.css"
   },
   {
     "revision": "4bad7aae91f10eda5dc4",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/rhomis/static/js/2.d2c87445.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "98b75143effbd018a533",
-    "url": "/rhomis/static/js/main.4758712a.chunk.js"
+    "revision": "528a4e793400da1a1192",
+    "url": "/rhomis/static/js/main.e0d605a7.chunk.js"
   },
   {
     "revision": "c354646dfbe95fdb5d13",
