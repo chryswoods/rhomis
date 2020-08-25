@@ -23,27 +23,40 @@ class Filter {
 
   is_visible(obj) {
     if (obj instanceof Language) {
+      console.log(this._languages);
+
       if (this._languages === null) {
         return true;
       }
-      else {
-        return this._languages[obj.code];
+      else if (this._languages[obj.code]) {
+        console.log(obj.code);
+        console.log(this._languages[obj.code]);
+        return true;
+      }
+      else{
+        return false;
       }
     }
     else if (obj instanceof SDG) {
       if (this._sdgs === null) {
         return true;
       }
+      else if (this._sdgs[obj.number]) {
+        return true;
+      }
       else {
-        return this._sdgs[obj.number];
+        return false;
       }
     }
     else if (obj instanceof Category) {
       if (this._categories === null) {
         return true;
       }
+      else if (this._categories[obj.name]) {
+        return true;
+      }
       else {
-        return this._categories[obj.name];
+        return false;
       }
     }
     else if (obj instanceof Module) {
@@ -59,31 +72,25 @@ class Filter {
   set_filtered(obj, filtered = true) {
     if (filtered) {
       if (obj instanceof Language) {
-        let c = obj.code;
         if (this._languages === null) {
-          this._languages = {c: 1};
+          this._languages = {};
         }
-        else {
-          this._languages[c] = 1;
-        }
+
+        this._languages[obj.code] = 1;
       }
       else if (obj instanceof Category) {
-        let c = obj.number;
         if (this._categories === null) {
-          this._categories = { c: 1 }
+          this._categories = {}
         }
-        else {
-          this._categories[c] = 1;
-        }
+
+        this._categories[obj.name] = 1;
       }
       else if (obj instanceof SDG) {
-        let c = obj.number;
         if (this._sdgs === null) {
-          this._sdgs = { c: 1 };
+          this._sdgs = {};
         }
-        else {
-          this._sdgs[c] = 1;
-        }
+
+        this._sdgs[obj.number] = 1;
       }
     }
     else {
@@ -93,6 +100,7 @@ class Filter {
 
   toggle_filtered(obj) {
     this.set_filtered(obj, this.is_visible(obj));
+    console.log(`${obj.name} visible? ${this.is_visible(obj)}`);
   }
 };
 

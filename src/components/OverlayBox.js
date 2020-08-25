@@ -4,7 +4,11 @@ import React from 'react';
 import styles from './OverlayBox.module.css';
 
 function OverlayBox(props) {
-  let item = this.props.item;
+  let item = props.item;
+
+  if (!item) {
+    return null;
+  }
 
   let url = null;
 
@@ -18,7 +22,7 @@ function OverlayBox(props) {
                 {item}
                 <div>
                   <button className={styles.button}
-                          onClick={this.props.emitClose}>Close</button>
+                          onClick={props.emitClose}>Close</button>
                 </div>
               </div>
             </div>);

@@ -1,0 +1,16 @@
+.button,
+.selected_button {
+    min-width: 100px;
+    min-height: 100px;
+    background-color: lightgoldenrodyellow;
+    margin: 4px;
+}
+
+.selected_button {
+    background-color: lightblue;
+}
+
+.button:hover,
+.selected_button:hover {
+    filter: brightness(125%);
+}

@@ -42,9 +42,15 @@ class App extends React.Component {
 
   slotUpdate(obj) {
     if (obj instanceof Design) {
+      console.log("UPDATE DESIGN");
       this.setState({ design: obj });
     } else if (obj instanceof Filter) {
+      console.log("UPDATE FILTER");
       this.setState({ filter: obj });
+    }
+    else {
+      console.log("UNRECOGNISED");
+      console.log(obj);
     }
   }
 
@@ -63,6 +69,8 @@ class App extends React.Component {
   }
 
   render() {
+    console.log("RENDER");
+
     let modules = this.state.modules;
     let design = this.state.design;
     let filter = this.state.filter;
@@ -94,7 +102,7 @@ class App extends React.Component {
           <div
             className={styles.closeOverlayButton}
             onClick={() => {
-              this.closeOverlay();
+              this.closePopup();
             }}
           >
             X
@@ -102,7 +110,7 @@ class App extends React.Component {
           <OverlayBox
             item={this.state.popup}
             emitClose={() => {
-              this.closeOverlay();
+              this.closePopup();
             }}
           />
         </ReactModal>
@@ -121,14 +129,18 @@ class App extends React.Component {
         <SlidingPanel
           isOpen={this.state.is_menu_open}
           position="left"
-          size="100px"
-          minSize="100px"
+          size="50%"
+          maxSize="400px"
         >
           <Menu
+            modules={modules}
+            design={design}
+            filter={filter}
             emitClose={() => {
               this.setState({ is_menu_open: false });
             }}
             emitPopup={emitPopup}
+            emitUpdate={emitUpdate}
           />
         </SlidingPanel>
 
