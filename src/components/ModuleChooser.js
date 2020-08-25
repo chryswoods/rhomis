@@ -69,8 +69,10 @@ function ModuleChooser(props) {
             props.emitUpdate(design);
           }}>Select All</button>
       </div>
-      <div className={styles.content}>
-        {core_panels}
+      <div>
+        <div className={styles.content}>
+          {core_panels}
+        </div>
       </div>
       <div className={styles.heading}>
         Additional Modules  - <button className={styles.button}
@@ -86,8 +88,10 @@ function ModuleChooser(props) {
             props.emitUpdate(design);
           }}>Select All</button>
       </div>
-      <div className={styles.content}>
-        {add_panels}
+      <div>
+        <div className={styles.content}>
+          {add_panels}
+        </div>
       </div>
     </div>);
 }

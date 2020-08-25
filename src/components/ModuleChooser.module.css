@@ -1,7 +1,6 @@
 .panel {
     display: flex;
     flex-direction: column;
-    overflow: auto;
 }
 
 .heading {
@@ -19,6 +18,7 @@
     flex-direction: row;
     align-items: stretch;
     justify-content: center;
+    overflow: none;
 }
 
 .button {
