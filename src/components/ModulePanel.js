@@ -10,18 +10,14 @@ import styles from "./ModulePanel.module.css";
 
 function ModulePanel(props) {
   const modules = props.modules;
-
-  if (!modules) {
-    return <div>Missing modules!</div>;
-  }
-
+  const design = props.design;
   const index = props.index;
 
-  const module = modules.modules[index];
+  const module = modules.at(index);
 
   let panel_style = styles.panel;
 
-  if (modules.is_selected[index]) {
+  if (design.is_selected(module)) {
     panel_style = styles.selected_panel;
   }
 

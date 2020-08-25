@@ -28,11 +28,7 @@ class Modules{
       this._code_to_language[this.languages[i].code] = i;
     }
 
-    this.is_selected = [];
-
     for (let i in this.modules) {
-      this.is_selected.push(false);
-
       let module = this.modules[i];
 
       module.category = this.categories[this._name_to_category[module.category]];
@@ -49,11 +45,19 @@ class Modules{
 
       for (let j in module.languages) {
         languages.push(this.languages[
-                  this._code_to_language[module.languages[j]]]);
+          this._code_to_language[module.languages[j]]]);
       }
 
       module.languages = languages;
     }
+  }
+
+  count() {
+    return this.modules.length;
+  }
+
+  at(i) {
+    return this.modules[i];
   }
 }
 

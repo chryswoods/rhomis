@@ -2,29 +2,46 @@ import React from 'react';
 
 import ModulePanel from "./ModulePanel";
 
+import Modules from "../model/Modules";
+import Design from "../model/Design";
+
 import styles from "./ModuleChooser.module.css";
 
-class ModuleChooser extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { "modules": props.modules };
+function ModuleChooser(props) {
+  let modules = props.modules;
+  let design = props.design;
+
+  if (!modules) {
+    return (<div>You must load some modules!</div>);
   }
 
-  render() {
-
-    let panels = [];
-
-    for (let i in this.state.modules.modules) {
-      panels.push(<ModulePanel modules={this.state.modules}
-                               index={i}
-                               key={i}/>);
-    }
-
-    return (<div className={styles.panel}>
-              {panels}
-            </div>);
+  if (!design) {
+    return (<div>You must load a design!</div>);
   }
 
-};
+  if (!(modules instanceof Modules)){
+    console.log(modules);
+    return (<div>Wrong type for modules</div>);
+  }
+
+  if (!(design instanceof Design)) {
+    console.log(design);
+    return (<div>Wrong type for design</div>);
+  }
+
+  let panels = [];
+
+  for (let i = 0; i < modules.count(); ++i) {
+    panels.push(<ModulePanel modules={modules}
+                             design={design}
+                             emitUpdate={props.emitUpdate}
+                             index={i}
+                             key={i}/>);
+  }
+
+  return (<div className={styles.panel}>
+            {panels}
+          </div>);
+}
 
 export default ModuleChooser;
