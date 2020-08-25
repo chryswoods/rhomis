@@ -22,7 +22,11 @@ function ModulePanel(props) {
   }
 
   return (
-    <div className={panel_style}>
+    <div className={panel_style}
+      onClick={() => {
+        design.toggle_selected(module);
+        props.emitUpdate(design);
+      }}>
       <div className={styles.banner}
         style={{ backgroundColor: module.category.color }}>
         <div className={styles.number}

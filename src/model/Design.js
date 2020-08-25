@@ -30,29 +30,32 @@ class Design {
 
   is_selected(module) {
     module = this._getID(module);
-    if (module == 0) {
+    if (module === 0) {
       return false;
     }
+    else if (this._is_selected[module]) {
+      return true;
+    }
     else {
-      return this._is_selected[module.number];
+      return false;
     }
   }
 
-  setSelected(module, selected = true) {
+  set_selected(module, selected = true) {
     module = this._getID(module);
 
-    if (module != 0) {
+    if (module !== 0) {
       if (selected) {
         this._is_selected[module] = true;
       }
-      else if (this._is_selected[module]){
+      else {
         delete this._is_selected[module];
       }
     }
   }
 
-  toggleSelected(module) {
-    this.setSelected(!(this.isSelected(module)));
+  toggle_selected(module) {
+    this.set_selected(module, !(this.is_selected(module)));
   }
 
   toDry() {

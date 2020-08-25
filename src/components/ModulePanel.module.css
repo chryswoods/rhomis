@@ -5,14 +5,41 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+}
+
+.panel:hover>* {
+    filter: brightness(125%);
+}
+
+.panel:hover {
+    border-style: outset;
+    border-width: 2px;
+    border-color: #EEEEEE;
 }
 
 .selected_panel {
-    background-color: #782226;
-    color: #e6e7e8;
+    background-color: #FFF5FF;
+    color: #782226;
     width: 250px;
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    border-style: inset;
+    border-width: 2px;
+    border-color: grey;
+}
+
+.selected_panel:hover>* {
+    filter: brightness(125%);
+}
+
+.selected_panel:hover {
+    border-style: inset;
+    border-width: 2px;
+    border-color: #EEEEEE;
 }
 
 .banner {
