@@ -128,7 +128,8 @@ class Filter {
   }
 
   set_filtered(obj, filtered = true) {
-    console.log(`set_filtered(${obj.code}, ${filtered})`);
+    console.log(`set_filtered(${filtered})`);
+    console.log(obj);
     if (filtered) {
       if (obj instanceof Language) {
         if (this._languages === null) {
@@ -162,6 +163,30 @@ class Filter {
 
           if (Object.keys(this._languages).length === 0) {
             this._languages = null;
+          }
+        }
+      }
+      else if (obj instanceof SDG) {
+        if (this._sdgs === null) {
+          return;
+        }
+        else if (this._sdgs[obj.number]) {
+          delete this._sdgs[obj.number];
+
+          if (Object.keys(this._sdgs).length === 0) {
+            this._sdgs = null;
+          }
+        }
+      }
+      else if (obj instanceof Category) {
+        if (this._categories === null) {
+          return;
+        }
+        else if (this._categories[obj.name]) {
+          delete this._categories[obj.name];
+
+          if (Object.keys(this._categories).length === 0) {
+            this._categories = null;
           }
         }
       }

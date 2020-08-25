@@ -61,7 +61,9 @@ function ModuleChooser(props) {
             for (let i = 0; i < modules.count(); ++i){
               let module = modules.modules[i];
               if (module.module_type === "CORE") {
-                design.set_selected(module, true);
+                if (filter.is_visible(module)) {
+                  design.set_selected(module, true);
+                }
               }
             }
             props.emitUpdate(design);
@@ -70,7 +72,20 @@ function ModuleChooser(props) {
       <div className={styles.content}>
         {core_panels}
       </div>
-      <div className={styles.heading}>Additional Modules</div>
+      <div className={styles.heading}>
+        Additional Modules  - <button className={styles.button}
+          onClick={() => {
+            for (let i = 0; i < modules.count(); ++i){
+              let module = modules.modules[i];
+              if (module.module_type === "ADDITIONAL") {
+                if (filter.is_visible(module)) {
+                  design.set_selected(module, true);
+                }
+              }
+            }
+            props.emitUpdate(design);
+          }}>Select All</button>
+      </div>
       <div className={styles.content}>
         {add_panels}
       </div>
