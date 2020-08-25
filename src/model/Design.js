@@ -54,6 +54,10 @@ class Design {
     }
   }
 
+  get_selected() {
+    return Object.keys(this._is_selected);
+  }
+
   toggle_selected(module) {
     this.set_selected(module, !(this.is_selected(module)));
   }

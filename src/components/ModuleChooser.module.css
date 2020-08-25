@@ -1,9 +1,10 @@
 .panel {
-    background-color: #ffffff;
     display: flex;
     flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
 }
 
 .panel>* {
-    margin: 10px;
+    margin: 6px;
 }

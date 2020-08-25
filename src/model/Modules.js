@@ -15,6 +15,7 @@ class Modules{
     this._name_to_category = {};
     this._number_to_sdg = {};
     this._code_to_language = {};
+    this._number_to_module = {};
 
     for (let i in this.categories) {
       this._name_to_category[this.categories[i].name] = i;
@@ -49,6 +50,8 @@ class Modules{
       }
 
       module.languages = languages;
+
+      this._number_to_module[module.number] = i;
     }
   }
 
@@ -58,6 +61,10 @@ class Modules{
 
   at(i) {
     return this.modules[i];
+  }
+
+  get_module(number) {
+    return this.at(this._number_to_module[number]);
   }
 }
 
