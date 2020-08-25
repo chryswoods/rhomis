@@ -1,10 +1,31 @@
 .panel {
     display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.heading {
+    background-color: lightskyblue;
+    color: black;
+    font-size: 14pt;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.content {
+    display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     align-items: stretch;
     justify-content: center;
 }
 
-.panel>* {
+.button {
+    background-color: skyblue;
+    color: black;
+}
+
+.content>* {
     margin: 6px;
 }

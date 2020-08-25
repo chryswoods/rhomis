@@ -23,10 +23,10 @@ function DesignSummary(props) {
 
     let bgcolor = null;
 
-    if (total_time > 45) {
+    if (total_time > 120) {
         bgcolor = "red";
     }
-    else if (total_time > 30) {
+    else if (total_time > 90) {
         bgcolor = "orange";
     }
 

@@ -30,22 +30,51 @@ function ModuleChooser(props) {
     return (<div>Wrong type for design</div>);
   }
 
-  let panels = [];
+  let core_panels = [];
+  let add_panels = [];
 
   for (let i = 0; i < modules.count(); ++i) {
     let module = modules.modules[i];
     if (filter.is_visible(module)) {
-      panels.push(<ModulePanel modules={modules}
-        design={design}
-        emitUpdate={props.emitUpdate}
-        index={i}
-        key={i} />);
+      if (module.module_type === "CORE") {
+        core_panels.push(<ModulePanel modules={modules}
+          design={design}
+          emitUpdate={props.emitUpdate}
+          index={i}
+          key={i} />);
+      }
+      else {
+        add_panels.push(<ModulePanel modules={modules}
+          design={design}
+          emitUpdate={props.emitUpdate}
+          index={i}
+          key={i} />);
+      }
     }
   }
 
-  return (<div className={styles.panel}>
-            {panels}
-          </div>);
+  return (
+    <div className={styles.panel}>
+      <div className={styles.heading}>
+        Core Modules - <button className={styles.button}
+          onClick={() => {
+            for (let i = 0; i < modules.count(); ++i){
+              let module = modules.modules[i];
+              if (module.module_type === "CORE") {
+                design.set_selected(module, true);
+              }
+            }
+            props.emitUpdate(design);
+          }}>Select All</button>
+      </div>
+      <div className={styles.content}>
+        {core_panels}
+      </div>
+      <div className={styles.heading}>Additional Modules</div>
+      <div className={styles.content}>
+        {add_panels}
+      </div>
+    </div>);
 }
 
 export default ModuleChooser;
