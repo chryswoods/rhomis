@@ -2,6 +2,7 @@
 import React from "react";
 
 import Design from "../model/Design";
+import Filter from "../model/Filter";
 
 import FilterEditor from "./FilterEditor";
 
@@ -22,7 +23,8 @@ function Menu(props) {
               modules={props.modules}
               design={props.design}
               filter={props.filter}
-              emitUpdate={props.emitUpdate} />;
+              emitUpdate={props.emitUpdate}
+              emitClose={props.emitClose}/>;
           props.emitPopup(filter);
         }}>
         Filter
@@ -33,6 +35,13 @@ function Menu(props) {
           props.emitUpdate(design);
         }}>
         Clear Selection
+      </button>
+      <button className={styles.button}
+        onClick={() => {
+          let filter = new Filter();
+          props.emitUpdate(filter);
+        }}>
+        Clear Filters
       </button>
     </div>);
 }

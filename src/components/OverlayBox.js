@@ -17,15 +17,16 @@ function OverlayBox(props) {
   }
 
   if (!url){
-    return (<div className={styles.container}>
-              <div className={styles.centerContainer}>
-                {item}
-                <div>
-                  <button className={styles.button}
-                          onClick={props.emitClose}>Close</button>
-                </div>
-              </div>
-            </div>);
+    return (
+      <div className={styles.container}>
+        <div className={styles.content}>
+         {item}
+        </div>
+        <button className={styles.close_button}
+          onClick={() => { props.emitClose(); }}>
+          Close
+        </button>
+      </div>);
   }
 
   return (

@@ -34,11 +34,10 @@
 .modal {
     position: absolute;
     z-index: 201;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    background-color: white;
+    top: 5%;
+    left: 5%;
+    right: 5%;
+    bottom: 5%;
 }
 
 .modalOverlay {
@@ -48,7 +47,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 200ms ease-in-out;
 }

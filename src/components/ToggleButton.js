@@ -12,7 +12,7 @@ function ToggleButton(props) {
   }
 
   return (
-    <div className={style} onClick={props.onClick}>
+    <div className={style} style={props.style} onClick={props.onClick}>
       {props.children}
     </div>
   );

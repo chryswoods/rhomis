@@ -1,16 +1,18 @@
 .button,
 .selected_button {
-    min-width: 100px;
-    min-height: 100px;
-    background-color: lightgoldenrodyellow;
+    width: 150px;
+    height: 50px;
+    background-color: rgb(65, 133, 223);
     margin: 4px;
+    text-align: center;
+    word-wrap: break-word;
+    color: white;
+    font-weight: bold;
+    font-size: 12pt;
+    padding: 50px 5px;
+    filter: brightness(50%);
 }
 
 .selected_button {
-    background-color: lightblue;
-}
-
-.button:hover,
-.selected_button:hover {
-    filter: brightness(125%);
+    filter: brightness(100%);
 }

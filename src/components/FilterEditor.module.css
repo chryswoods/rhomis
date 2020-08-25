@@ -3,11 +3,28 @@
     flex-direction: column;
     flex-wrap: nowrap;
     overflow: auto;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
 }
 
-.languages {
+.heading {
+    font-weight: bold;
+    margin: 10px;
+}
+
+.buttons {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    overflow: hidden;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.reset_button {
+    color: #333333;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background-color: #eeeeee;
+    width: 200px;
 }
