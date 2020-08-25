@@ -6,6 +6,7 @@ import ModuleChooser from "./components/ModuleChooser";
 import Menu from "./components/Menu";
 import DesignSummary from "./components/DesignSummary";
 import OverlayBox from "./components/OverlayBox";
+import SlidingPanel from "./components/SlidingPanel";
 
 import Modules from "./model/Modules";
 import Design from "./model/Design";
@@ -35,6 +36,7 @@ class App extends React.Component {
       filter: filter,
       popup: null,
       is_popup_open: false,
+      is_menu_open: false,
     };
   }
 
@@ -106,14 +108,29 @@ class App extends React.Component {
         </ReactModal>
 
         <div className={styles.header}>
+          <button
+            className={styles.hamburgerButton}
+            onClick={() => {
+              this.setState({ is_menu_open: true });
+            }}
+          >
+            ☰
+          </button>
+        </div>
+
+        <SlidingPanel
+          isOpen={this.state.is_menu_open}
+          position="left"
+          size="100px"
+          minSize="100px"
+        >
           <Menu
-            modules={modules}
-            design={design}
-            filter={filter}
-            emitUpdate={emitUpdate}
+            emitClose={() => {
+              this.setState({ is_menu_open: false });
+            }}
             emitPopup={emitPopup}
           />
-        </div>
+        </SlidingPanel>
 
         <div className={styles.content}>
           <ModuleChooser

@@ -1,21 +1,21 @@
 
 import React from "react";
 
+import styles from "./Menu.module.css";
+
 function Menu(props) {
-    let modules = props.modules;
-    let design = props.design;
-
-    let selected = design.get_selected();
-
-    let total_time = 0;
-
-    for (let i in selected) {
-        let module_number = selected[i];
-        let module = modules.get_module(module_number);
-        total_time += module.duration;
-    }
-
-    return (<div>Number selected: {selected.length}. Total time: {total_time} mins</div>)
+  return (
+    <div className={styles.panel}
+      onClick = {() => { props.emitClose() }}>
+      <button className={styles.button}
+        onClick={() => { props.emitPopup((<div>Popup</div>)) }}>
+        Popup
+      </button>
+      <button className={styles.button}
+        onClick={() => { props.emitClose(); }}>
+        Close Menu
+      </button>
+    </div>);
 }
 
 export default Menu;
