@@ -10,6 +10,7 @@ import styles from "./ModuleChooser.module.css";
 function ModuleChooser(props) {
   let modules = props.modules;
   let design = props.design;
+  let filter = props.filter;
 
   if (!modules) {
     return (<div>You must load some modules!</div>);
@@ -32,11 +33,14 @@ function ModuleChooser(props) {
   let panels = [];
 
   for (let i = 0; i < modules.count(); ++i) {
-    panels.push(<ModulePanel modules={modules}
-                             design={design}
-                             emitUpdate={props.emitUpdate}
-                             index={i}
-                             key={i}/>);
+    let module = modules.modules[i];
+    if (filter.is_visible(module)) {
+      panels.push(<ModulePanel modules={modules}
+        design={design}
+        emitUpdate={props.emitUpdate}
+        index={i}
+        key={i} />);
+    }
   }
 
   return (<div className={styles.panel}>

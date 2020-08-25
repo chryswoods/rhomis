@@ -107,9 +107,20 @@ class Filter {
       }
     }
     else if (obj instanceof Module) {
+      let visible_language = true;
+
+      if (this._languages !== null) {
+        visible_language = this.any_visible(obj.languages);
+      }
+
+      let visible_sdg = true;
+
+      if (this._sdgs !== null) {
+        visible_language = this.any_visible(obj.sdgs);
+      }
+
       return this.is_visible(obj.category) &&
-        this.any_visible(obj.sdgs) &&
-        this.any_visible(obj.languages);
+        visible_language && visible_sdg;
     }
     else {
       return true;
